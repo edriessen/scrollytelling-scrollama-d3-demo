@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>Scrollytelling with Scrollama and D3 (demo)</title>
+      <meta name="description" content="An example of how to combine scrollama.js with d3.js for scrollytelling" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet"> 
+      <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+      
+    <main>
+      <section class="generic" id="intro">
+        <h1>
+            Scrollytelling with scrollama.js and d3.js (demo)
+        </h1>
+        <p>
+            This is a scrollytelling demo. 
+            It was created using scrollama.js and d3.js. 
+            It assumes your screen is at least 1100 pixels wide
+            and it has only been tested on a modern Firefox browser.
+            Technical notes are down below.
+        </p>
+        <p>
+            Have fun.
+        </p>
+        <p class="seperator">
+        </p>
+      </section>
+
+      <section id="scrolly">
+          
+        <figure>
+          <div class="viz" id="avicii_viz"></div>
+        </figure>
+
+        <article>
+            
+            <div class="step" data-step="1">
+              
+                <h2>The Album</h2>
+                <p>
+                    The story starts with a music album.
+                    In this case, it's Avicii's posthumous album TIM. 
+                    Each dot represents a song. 
+                    Hover over a dot to check the song titles.
+                </p>
+            </div>
+            
+            <div class="step" data-step="2">
+                <h2>Sentiment</h2>
+                <p>
+                    Using sentiment analysis,
+                    I turn the lyrics of a song into a data point with a sentiment score.
+                    The values range from -1.0 to +1.0  
+                    and are represented with red for negative values, 
+                    grey for neutral values, and green for positive values.
+
+                </p>
+            </div>
+            
+            <div class="step" data-step="2">
+                <h2>Magnitude</h2>
+                <p>
+                    Besides a sentiment score, the analysis returns a magnitude value.
+                    This tells something about the way the sentiment is expressed in a song.
+                    Is it weak or strong?
+                    The magnitude defines the size of a dot.
+                </p>
+            </div>
+            
+            <div class="step" data-step="3">
+                <h2>Position x by sentiment</h2>
+                <p>
+                    Now that each song has two data values,
+                    I use those to reposition the songs.
+                    First, I change the horizontal position (x-axis) based on the sentiment score.
+                    But as you can see, some songs overlap...
+                </p>
+            </div>
+            
+            <div class="step" data-step="4">
+                <h2>Position y by magnitude</h2>
+                <p>
+                    In the same way I use the sentiment score for the horizontal position of the songs,
+                    I use the magnitude value for the vertical position (y-axis).
+                </p>
+            </div>
+            
+            <div class="step" data-step="5">
+                <h2>Simplify dots</h2>
+                <p>
+                    Now that I have updated the positions of the songs,
+                    I simplify the visualisation for the next phase of the story.
+                </p>
+            </div>
+            
+            <div class="step" data-step="6">
+                <h2>Draw a path </h2>
+                <p>
+                    Next up, I draw a path from dot to dot, starting at song 1, moving to song 2, 
+                    and continueing like this al the way up to the last song.
+                    But the result is a bit edgy...
+                </p>
+            </div>
+            
+            <div class="step" data-step="7">
+                <h2>Draw a curved path</h2>
+                <p>
+                    Luckily, there's an alternative.
+                    Bezier curves are paths that don't go straight, but curve from data point to data point.
+                    And combining this type of path with the data, I get a pretty interesting result...
+                </p>
+            </div>
+            
+            <div class="step" data-step="8">
+                <h2>The result</h2>
+                <p>
+                    When I clean up the final visualisation, I get a nice view of the generated shape.
+                    Keep in mind that this is all generated using code.
+                    But it doesn't look like that.
+                    It looks like it's a hand-drawn signature. 
+                    Pretty cool right?
+                </p>
+            </div>
+        </article>
+          
+      </section>
+
+      <section class="generic" id="outro">
+        <p class="seperator">
+        </p>
+        <p>
+            That's a wrap.
+            I hope you enjoyed this scrollytelling demo.
+            The technical notes are available on <a href="https://github.com/edriessen/scrollytelling-scrollama-d3-demo">Github</a>.
+        </p>  
+        <p>
+            If you have any question, <a href="http://www.edriessen.com/contact/">please do reach out to me</a>. 
+        </p>    
+    </section>
+    <section class="generic" id="footer">
+        <p>
+            <i>
+                This demo is created by Erik Driessen.
+                An independent exploratory programmer and analyst.
+            </i>  
+        </p>
+      </section>
+    </main>
+
+<!--     <div class='debug'></div> -->
+    <script src="src/d3.5.9.1.min.js"></script>
+    <script src="src/intersection-observer.js"></script>
+    <script src="src/stickyfill.min.js"></script>
+    <script src="src/scrollama.min.js"></script>
+    <script src="data/aviciiTimData.js"></script>
+    <script src="d3-animations.js"></script>
+    <script src="scrollama-settings.js"></script>
+  </body>
+</html>
