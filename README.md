@@ -59,6 +59,8 @@ Phoe, where to start. This project combines the knowledge of various people and 
   - D3.js Graph Gallery: Yan Holtz offers some great and understandable resources on all sorts of things related to D3. One of them is transitions. I think their pages do a really good job at explaining a simple concept and increasing the complexity of it step by step. I'll refer to two I have used for this demo: [bubble chart with data tooltip](https://www.d3-graph-gallery.com/graph/bubble_tooltip.html) and [various chart animations](https://www.d3-graph-gallery.com/graph/interactivity_transition.html).
 - **Avicii**: I just can't not name him in any project that somehow touches his music. He still is a great inspiration that led me to work on some very interesting projects and develop new skills. I now get more enjoyment out creatively applying my skills and sharing projects with other people. (And the colour pallet of this demo is based on the cover art for TIM).
 
+If you have any questions or need some help: reach out to me [here](http://www.edriessen.com/contact/). 
+
 
 
 
