@@ -10,7 +10,14 @@ const svg = d3.select("#avicii_viz")
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`);
-        
+
+// set colours for plot
+const color_mapping = {
+    red: '#A6055D',
+    grey: '#777',
+    green: '#00C184'
+}
+
 // Add X axis
 const x = d3.scaleLinear()
     .domain([0, 13])
@@ -117,11 +124,11 @@ function dotColorSentiment(){
                 .attr("r", 10)  
                 .style("fill", function(d){ 
                 if (d.score > 0){
-                    return 'green'
+                    return color_mapping.green
                 } else if (d.score < 0){
-                    return 'red'
+                    return color_mapping.red
                 } else {
-                    return '#777777'
+                    return color_mapping.grey
                 }
     })
 }
@@ -191,11 +198,11 @@ function dotPositionMagnitude(){
         .duration(1000)
             .style("fill", function(d){ 
                 if (d.score > 0){
-                    return 'green'
+                    return color_mapping.green
                 } else if (d.score < 0){
-                    return 'red'
+                    return color_mapping.red
                 } else {
-                    return '#777777'
+                    return color_mapping.grey
                 }
             })
             .attr("r", d => (d.magnitude*2))

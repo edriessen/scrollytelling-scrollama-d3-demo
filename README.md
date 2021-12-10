@@ -40,7 +40,7 @@ I won't be fixing these, as they are resolved when a user restarts at the beginn
 
 I plan to implement a few updates to the project:
 
-- Change the colours for sentiment to a more colour-blind-friendly colour scheme
+- ~~Change the colours for sentiment to a more colour-blind-friendly colour scheme~~
 - Add a technical note to each story element explaining what changes happen in the background
 - Add some images to this repo
 - Add a Dutch version

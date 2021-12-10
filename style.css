@@ -124,12 +124,25 @@ p.seperator{
     margin: 50px 0;
     border-bottom: 2px solid #8C8274;
 }
+p span.label{
+    font-weight: 700;
+}
+
+.red{
+    color: #A6055D;
+}
+.grey{
+    color: #777;
+}
+.green{
+    color: #00C184;
+}
 
 .tooltip{
     margin: 0 auto;
     color: #01080D;
     position: absolute;
-    bottom: 0;
+    bottom: -35px;
     right: 20px;
     width: 500px;
     text-align: right;
