@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>Scrollytelling met Scrollama en D3 (demo)</title>
+      <meta name="description" content="Dit is een demo voor het gebruik van scrollama.js en d3.js voor scrollytelling" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet"> 
+      <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="language">
+        Language: 
+        <a href="http://edriessen.com/app/scrollytelling-demo/">EN</a> |
+        <a class="active" href="http://edriessen.com/app/scrollytelling-demo/nl.html">NL</a>
+    </div>
+    <main>
+      <section class="generic" id="intro">
+        <h1>
+            Scrollytelling met scrollama.js en d3.js (demo)
+        </h1>
+        <p>
+            Dit is een scrollytelling demo. 
+            Het is gebouwd m.b.v. scrollama.js en d3.js. 
+            Ik ga ervanuit dat je scherm minimaal 1100 pixels breed is
+            en de demo is alleen getest in een moderne firefox browser. 
+            Je kan het dus het beste bekijken op je computer. 
+        </p>
+        <p>
+            Het onderwerp van deze demo is mijn <strong>Avicii Open Data Art project</strong>.
+            Ik ben dit project kort na Avicii's overlijden gestart.
+            Mijn doel was destijds om zijn songeteksten te onderzoeken,
+            maar ik stuitte onbedoeld op een nieuw manier om zijn album abstract te visualiseren;
+            een soort data kunst.
+        </p>
+        <p>
+            Nieuwsgierig? Scroll dan verder.
+        </p>
+        <p class="seperator">
+        </p>
+      </section>
+
+      <section id="scrolly">
+          
+        <figure>
+          <div class="viz" id="avicii_viz"></div>
+        </figure>
+
+        <article>
+            
+            <div class="step" data-step="1">
+              
+                <h2>Het Album</h2>
+                <p>
+                    Het verhaal start met zijn album.
+                    In dit geval is het Avicii's posthume album TIM. 
+                    Elke punt hiernaast staat voor een nummer.  
+                    Hover er maar eens overheen om de songtitels te zien.
+                </p>
+            </div>
+            
+            <div class="step" data-step="2">
+                <h2>Sentiment</h2>
+                <p>
+                    Met behulp van sentiment analyse 
+                    vertaal ik de songtekst van ieder nummer naar een datapunt. 
+                    Dit bevat de sentiment score, een waarde tussen de -1.0 en +1.0. 
+                    Dit geeft ieder nummer een 
+                    <span class="label red">negatieve waarde</span>, 
+                    <span class="label">neutrale waarde</span>, of
+                    <span class="label green">positieve waarde</span>.
+                </p>
+            </div>
+            
+            <div class="step" data-step="2">
+                <h2>Magnitude</h2>
+                <p>
+                    Naast de sentimentscore, geeft de analyse ook een <i>magnitude</i> waarde terug.
+                    Dit vertelt ons iets over de kracht waarmee de songtekst het sentiment uit. 
+                    Is dit krachtig, of juist niet?
+                    De <i>magnitude</i> bepaalt de grootte van het datapunt. 
+                </p>
+            </div>
+            
+            <div class="step" data-step="3">
+                <h2>Sentiment als x-positie</h2>
+                <p>
+                    Nu ieder nummer twee datapunten heeft,
+                    kan ik die gebruiken om de nummers opnieuw te positioneren. 
+                    Ik pas eerst de horizontale positie (x-as) aan o.b.v. het sentiment.
+                    Maar zoals je ziet, vallen sommige datapunten over elkaar...
+                </p>
+            </div>
+            
+            <div class="step" data-step="4">
+                <h2>Magnitude als y-positie</h2>
+                <p>
+                    Op dezelfde manier als ik de sentimentscore gebruik voor de horizontale positie van de nummers,
+                    gebruik ik nu de <i>magnitude</i> voor de verticale positie (y-as).
+                </p>
+            </div>
+            
+            <div class="step" data-step="5">
+                <h2>Simpele puntjes</h2>
+                <p>
+                    Na het aanpassen van de positie van de nummers,
+                    kan ik de weergave versimpelen.
+                    We zijn nu klaar voor de volgende fase van de visualisatie.
+                </p>
+            </div>
+            
+            <div class="step" data-step="6">
+                <h2>Teken een recht pad</h2>
+                <p>
+                    Net zoals je vroeger wel eens een tekening maakte door nummers achtereen te verbinden,
+                    doe ik dat nu ook met de nummers van het album.
+                    Eerst een lijn van punt 1 naar 2, dan van 2 naar 3, enzovoorts. 
+                    Het resultaat is alleen wat hoekig vind je niet?
+                </p>
+            </div>
+            
+            <div class="step" data-step="7">
+                <h2>Teken een krullend pad</h2>
+                <p>
+                    Gelukkig kan ik het pad ook op een andere manier tekenen.
+                    Een zogenoemde Bezier curve gaat niet recht van datapunt naar datapunt, 
+                    maar krult van het ene punt, via  andere punten, naar een later punt.
+                    Bijvoorbeeld van punt 1, via punt 2 en 3, naar punt 4.
+                    En deze aanpak geeft een heel interessant resultaat!
+                </p>
+            </div>
+            
+            <div class="step" data-step="8">
+                <h2>Het resultaat</h2>
+                <p>
+                    Als ik het resultaat wat opschoon, komen we tot het eindresultaat. 
+                    Houd in je achterhoofd dat dit dus helemaal gegenereerd is door code. 
+                    Het ziet er alleen niet zo uit, het lijkt eerder op een handtekening.
+                    Best cool toch?
+                </p>
+            </div>
+        </article>
+          
+      </section>
+
+      <section class="generic" id="outro">
+        <p class="seperator">
+        </p>
+        <p>
+            Dat was 'm. 
+            Ik hoop dat je deze scrollytelling demo en projectuitleg interessant vond. 
+        </p>
+        <p>
+            Als je interesse hebt in de technische kant van deze demo, dan staat deze op 
+            <a href="https://github.com/edriessen/scrollytelling-scrollama-d3-demo">Github (Engels)</a>.
+        </p>
+        <p>
+            Wil je meer weten over mijn Avicii Project? 
+            Ga dan naar mijn <a href="http://www.edriessen.com/projects/the-avicii-project/">Avicii Open Data Art pagina (Engels)</a>.
+            Ik geef ook lezingen en workshops over dit project. 
+        </p>  
+        <p>
+            Wil je iets vragen aan me vragen? 
+            Neem dan contact met me op door <strong>@outlook.com</strong> achter <strong>erik.driesen</strong> te plakken. 
+        </p>    
+    </section>
+    <section class="generic" id="footer">
+        <p>
+            <i>
+                Deze demo is gemaakt door Erik Driessen.
+            </i>  
+        </p>
+      </section>
+    </main>
+
+<!--     <div class='debug'></div> -->
+    <script src="src/d3.5.9.1.min.js"></script>
+    <script src="src/intersection-observer.js"></script>
+    <script src="src/stickyfill.min.js"></script>
+    <script src="src/scrollama.min.js"></script>
+    <script src="data/aviciiTimData.js"></script>
+    <script src="d3-animations.js"></script>
+    <script src="scrollama-settings.js"></script>
+  </body>
+</html>

@@ -43,7 +43,7 @@ I plan to implement a few updates to the project:
 - ~~Change the colours for sentiment to a more colour-blind-friendly colour scheme~~
 - Add a technical note to each story element explaining what changes happen in the background
 - Add some images to this repo
-- Add a Dutch version
+- ~~Add a Dutch version~~
 - Add other languages (if you want to help, [reach out](http://www.edriessen.com/contact/))
 - Maybe rewrite some code (it now really is a blend of various sources)
 

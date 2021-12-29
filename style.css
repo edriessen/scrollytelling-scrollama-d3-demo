@@ -48,7 +48,12 @@ section.generic{
 section#intro{
     padding: 50px 0 0 0;
 }
-
+#language{
+    background: #01080D;
+    padding: 5px 10px;
+    color: #F2E8DC;
+    font-size: .8em;
+}
 figure {
     position: -webkit-sticky;
     position: sticky;
@@ -103,6 +108,9 @@ p{
     text-align: justify;
     margin-bottom: 25px;
 
+}
+p strong{
+    font-weight: 700;
 }
 ul{
     margin-bottom: 25px;
@@ -162,7 +170,12 @@ a{
     color: #F14F54;
     
 }
-
+#language a{
+    color: #F2E8DC;
+}
+#language a.active{
+    opacity: .5;
+}
 #footer{
     width: 100%;
     color: #F2E8DC;
