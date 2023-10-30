@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>Scrollytelling with Scrollama and D3 (demo)</title>
+      <meta name="description" content="Un exemple de combinaison de scrollama.js avec d3.js pour le scrollytelling" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body lang="fr">
+    <div id="language">
+        Language:
+        <a href="http://edriessen.com/app/scrollytelling-demo/">EN</a> |
+        <a href="http://edriessen.com/app/scrollytelling-demo/nl.html">NL</a> |
+        <a class="active" href="http://edriessen.com/app/scrollytelling-demo/fr.html">FR</a>
+    </div>
+    <main>
+      <section class="generic" id="intro">
+        <h1>
+            Scrollytelling avec scrollama.js et d3.js (démo)
+        </h1>
+        <p>
+          Ceci est une démo de scrollytelling.
+          Elle a été créée en utilisant scrollama.js et d3.js.
+          Elle suppose que votre écran a une largeur d'au moins 1100 pixels et n'a été testée que sur un navigateur Firefox moderne.
+          Les notes techniques se trouvent plus bas.
+
+        </p>
+        <p>
+            Amusez-vous bien.
+        </p>
+        <p class="seperator">
+        </p>
+      </section>
+
+      <section id="scrolly">
+
+        <figure>
+          <div class="viz" id="avicii_viz"></div>
+        </figure>
+
+        <article>
+
+            <div class="step" data-step="1">
+
+                <h2>L'album</h2>
+                <p>
+                  L'histoire commence par un album de musique.
+                  Dans ce cas, il s'agit de l'album posthume d'Avicii, TIM.
+                  Chaque point représente une chanson.
+                  Survolez un point pour connaître le titre de la chanson.
+
+                </p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h2>Sentiment</h2>
+                <p>
+                    Grâce à l'analyse des sentiments, je transforme les paroles d'une chanson en un point de données avec un score de sentiment. Les valeurs vont de -1,0 à +1,0 et donnent à chaque chanson une valeur 
+                    <span class="label red">négative</span>,
+                    <span class="label">neutre</span>, or
+                    <span class="label green">positive</span>.
+                </p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h2>Magnitude</h2>
+                <p>
+                    Outre la note de sentiment, l'analyse renvoie une valeur de magnitude. Celle-ci renseigne sur la manière dont le sentiment est exprimé dans une chanson. Est-il faible ou fort ? La magnitude définit la taille d'un point.
+                </p>
+            </div>
+
+            <div class="step" data-step="3">
+                <h2>Positionner l'abscisse en fonction du sentiment</h2>
+                <p>
+                    Maintenant que chaque chanson possède deux valeurs de données, je les utilise pour repositionner les chansons. Tout d'abord, je modifie la position horizontale (axe des abscisses) en fonction du score de sentiment. Mais comme vous pouvez le voir, certaines chansons se chevauchent...
+                </p>
+            </div>
+
+            <div class="step" data-step="4">
+                <h2>Positionner l'ordonnée en fonction de la magnitude</h2>
+                <p>
+                    De la même manière que j'utilise le score de sentiment pour la position horizontale des chansons, j'utilise la valeur de magnitude pour la position verticale (axe des ordonnées).
+                </p>
+            </div>
+
+            <div class="step" data-step="5">
+                <h2>Simplifier les points</h2>
+                <p>
+                    Maintenant que j'ai mis à jour les positions des chansons, je simplifie la visualisation pour la phase suivante de l'histoire.
+                </p>
+            </div>
+
+            <div class="step" data-step="6">
+                <h2>Dessiner un chemin</h2>
+                <p>
+                    Ensuite, je dessine un chemin de point en point, en commençant par la chanson 1, en passant à la chanson 2, et en continuant ainsi jusqu'à la dernière chanson. Mais le résultat est un peu anguleux...
+                </p>
+            </div>
+
+            <div class="step" data-step="7">
+                <h2>Dessiner un chemin incurvé</h2>
+                <p>
+                    Heureusement, il existe une alternative. Les courbes de Bézier sont des chemins qui ne vont pas tout droit, mais qui s'incurvent d'un point de données à l'autre. En combinant ce type de chemin avec les données, j'obtiens un résultat assez intéressant...
+                </p>
+            </div>
+
+            <div class="step" data-step="8">
+                <h2>Le résultat</h2>
+                <p>
+                    Lorsque je nettoie la visualisation finale, j'obtiens une belle vue de la forme générée. N'oubliez pas que tout ceci est généré à l'aide de code informatique. Mais cela n'en a pas l'air. On dirait une signature dessinée à la main. Plutôt sympa, non ?
+                </p>
+            </div>
+        </article>
+
+      </section>
+
+      <section class="generic" id="outro">
+        <p class="seperator">
+        </p>
+        <p>
+            C'est terminé.
+            J'espère que vous avez apprécié cette démonstration de scrollytelling. Les notes techniques sont disponibles sur
+             <a href="https://github.com/edriessen/scrollytelling-scrollama-d3-demo">Github</a>.
+        </p>
+        <p>
+            Si vous avez des questions, <a href="http://www.edriessen.com/contact/">n'hésitez pas à me contacter</a>.
+        </p>
+    </section>
+    <section class="generic" id="footer">
+        <p>
+            <i>
+                Cette démo a été créée par Erik Driessen
+            </i>
+        </p>
+      </section>
+    </main>
+
+<!--     <div class='debug'></div> -->
+    <script src="src/d3.5.9.1.min.js"></script>
+    <script src="src/intersection-observer.js"></script>
+    <script src="src/stickyfill.min.js"></script>
+    <script src="src/scrollama.min.js"></script>
+    <script src="data/aviciiTimData.js"></script>
+    <script src="d3-animations.js"></script>
+    <script src="scrollama-settings.js"></script>
+  </body>
+</html>
