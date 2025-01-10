@@ -47,6 +47,10 @@ I plan to implement a few updates to the project:
 - Add other languages (if you want to help, [reach out](http://www.edriessen.com/contact/))
 - Maybe rewrite some code (it now really is a blend of various sources)
 
+## Support
+
+Do you like this repo? You can help me spend more time on git repos by buying me a coffee or some data art from my store. [Find out how](https://www.edriessen.com/support/).
+
 ## Acknowledgements
 
 Phoe, where to start. This project combines the knowledge of various people and blogposts. I'll aim to include them here: 
